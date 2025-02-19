@@ -64,6 +64,29 @@ def do_task(data: list):
     print("\nOrszágok terület szerint növekvő sorrendben:")
     for c in area_increase:
         print(c.name)
+        
+    alacsony = []
+    kozepes = []
+    magas = []
+    for country in data:
+        if country.pop_density < 100:
+            alacsony.append(country.name)
+        elif country.pop_density < 300:
+            kozepes.append(country.name)
+        else:
+            magas.append(country.name)
+    alacsony.sort()
+    kozepes.sort()
+    magas.sort()
+    print("\n\nAlacsony népsűrűség (<100):")
+    for c in alacsony:
+        print(c)
+    print("\nKözepes népsűrűség (>100, <300):")
+    for c in kozepes:
+        print(c)
+    print("\nMagas népsűrűség (>300):")
+    for c in magas:
+        print(c)
 
 print("Európa")
 data = import_cdata('forras_europa.txt')
