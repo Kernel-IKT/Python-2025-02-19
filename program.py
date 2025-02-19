@@ -48,6 +48,12 @@ def do_task(data: list):
     for country in data:
         all_area += country.area
     print(f"Összes ország területe: {all_area} km2")
+    
+    populations = []
+    for country in data:
+        populations.append(country.population)
+    pop_median = statistics.median(populations)
+    print(f"Népesség mediánja: {pop_median}")
 
 print("Európa")
 data = import_cdata('forras_europa.txt')
