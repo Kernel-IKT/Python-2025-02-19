@@ -21,7 +21,11 @@ def import_cdata(filename:str) -> list:
     return countries
 
 def do_task(data: list):
-    pass
+    populated = Country()
+    for country in data:
+        if country.population > populated.population:
+            populated = country
+    print(f"Legnépesebb ország: {populated.name}")
 
 print("Európa")
 data = import_cdata('forras_europa.txt')
