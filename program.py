@@ -39,6 +39,10 @@ def do_task(data: list):
             dense = country
     print(f"Legnagyobb népsűrűségű ország: {dense.name}")
     
+    all_density = 0
+    for country in data:
+        all_density += country.pop_density
+    print(f"Átlagos népsűrűség: {all_density / len(data)} fő/km2")
 
 print("Európa")
 data = import_cdata('forras_europa.txt')
