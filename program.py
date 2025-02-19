@@ -54,6 +54,16 @@ def do_task(data: list):
         populations.append(country.population)
     pop_median = statistics.median(populations)
     print(f"Népesség mediánja: {pop_median}")
+    
+    print("\nNépsűrűség > 150 fő/km2:")
+    for country in data:
+        if country.pop_density > 150:
+            print(country.name)
+            
+    area_increase = sorted(data, key=lambda x: x.area)
+    print("\nOrszágok terület szerint növekvő sorrendben:")
+    for c in area_increase:
+        print(c.name)
 
 print("Európa")
 data = import_cdata('forras_europa.txt')
