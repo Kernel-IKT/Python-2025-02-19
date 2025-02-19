@@ -26,11 +26,19 @@ def do_task(data: list):
         if country.population > populated.population:
             populated = country
     print(f"Legnépesebb ország: {populated.name}")
+    
     largest = Country()
     for country in data:
         if country.area > largest.area:
             largest = country
     print(f"Legnagyobb területű ország: {largest.name}")
+    
+    dense = Country()
+    for country in data:
+        if country.pop_density > dense.pop_density:
+            dense = country
+    print(f"Legnagyobb népsűrűségű ország: {dense.name}")
+    
 
 print("Európa")
 data = import_cdata('forras_europa.txt')
